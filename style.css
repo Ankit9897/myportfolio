@@ -1,0 +1,434 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  background: #020617;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ================= HEADER ================= */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 10%;
+  background: #020617;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.nav a {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #38bdf8;
+}
+
+/* ================= SECTIONS ================= */
+section {
+  padding: 60px 10%;
+  scroll-margin-top: 90px;
+}
+
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ================= HERO ================= */
+.hero {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-text {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero-sub {
+  margin-top: 10px;
+  color: #38bdf8;
+}
+
+/* ================= HERO LAYOUT ================= */
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* TEXT AREA */
+.hero-text-area {
+  flex: 1;
+}
+
+/* IMAGE AREA */
+.hero-image-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* IMAGE STYLE */
+.hero-image {
+  width: 320px;
+  max-width: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at top, #38bdf8, transparent 60%);
+  padding: 12px;
+
+  /* subtle floating animation */
+  animation: float 4s ease-in-out infinite;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 260px;
+    margin-top: 30px;
+  }
+}
+
+/* ================= SERVICES ================= */
+/* ================= SERVICES ================= */
+#services {
+  margin-top: 80px;
+}
+
+#services h2 {
+  margin-bottom: 30px;
+}
+
+/* GRID */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.service-card {
+  background: rgba(30, 41, 59, 0.95);
+  padding: 28px;
+  border-radius: 18px;
+  min-height: 220px;
+
+  /* 🔒 Always visible */
+  opacity: 1;
+  visibility: visible;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+
+  /* Hover animation only */
+  transition: transform 0.35s ease,
+              box-shadow 0.35s ease;
+}
+
+/* TITLE */
+.service-card h3 {
+  color: #38bdf8;
+  margin-bottom: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* TEXT */
+.service-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #e5e7eb;
+}
+
+/* HOVER EFFECT */
+.service-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 30px 60px rgba(56, 189, 248, 0.25);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+/* ================= SKILLS ================= */
+/* ================= SKILL TREES ================= */
+.skills-tree-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.skill-tree {
+  background: rgba(30, 41, 59, 0.95);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.skill-tree h3 {
+  color: #38bdf8;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* TREE STRUCTURE */
+.tree {
+  list-style: none;
+  padding-left: 20px;
+  position: relative;
+}
+
+.tree li {
+  position: relative;
+  padding: 12px 0 12px 20px;
+  color: #e5e7eb;
+  cursor: default;
+}
+
+/* VERTICAL LINE */
+.tree::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 6px;
+  width: 2px;
+  height: 100%;
+  background: #38bdf8;
+}
+
+/* NODE DOT */
+.tree li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18px;
+  width: 12px;
+  height: 12px;
+  background: #38bdf8;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.tree li:hover::before {
+  transform: scale(1.5);
+}
+
+.tree li:hover {
+  color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  .skills-tree-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ================= PROJECTS ================= */
+/* ================= PROJECTS ================= */
+#projects {
+  margin-top: 80px;
+}
+
+#projects h2 {
+  margin-bottom: 30px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background: rgba(30, 41, 59, 0.95);
+  padding: 28px;
+  border-radius: 20px;
+  min-height: 260px;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-card h3 {
+  font-family: 'Poppins', sans-serif;
+  color: #38bdf8;
+  margin-bottom: 8px;
+}
+
+.project-domain {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 12px;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #e5e7eb;
+}
+
+/* HOVER EFFECT ONLY */
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(56, 189, 248, 0.25);
+}
+
+
+/* ================= RESUME ================= */
+.resume-buttons {
+  margin-top: 20px;
+}
+
+.resume-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  margin-right: 15px;
+  background: #38bdf8;
+  color: #020617;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.resume-btn:hover {
+  background: white;
+}
+
+.resume-btn.outline {
+  background: transparent;
+  color: #38bdf8;
+  border: 2px solid #38bdf8;
+}
+
+.resume-btn.outline:hover {
+  background: #38bdf8;
+  color: #020617;
+}
+
+/* ================= CONTACT ================= */
+#contact p {
+  margin-top: 10px;
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+#about {
+  padding-bottom: 0px;
+}
+
+#services {
+  padding-top: 0px;
+}
+
+#projects {
+  padding-top: 0px;
+}
+
+#contact {
+  padding-top: 0px;
+}
+#contact {
+  padding-bottom: 60px;
+}
+
+#home {
+  padding-bottom: 0px;
+}
+
+/* ================= SOCIAL ICONS (IMAGES) ================= */
+.social-links {
+  margin-top: 25px;
+  display: flex;
+  gap: 20px;
+}
+
+.social-links a {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+}
+
+.social-links img {
+  width: 30px;
+  height: 300px;
+  object-fit: contain;
+}
+
+/* Hover Effect */
+.social-links a:hover {
+  background: #38bdf8;
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Mobile Center */
+@media (max-width: 900px) {
+  .social-links {
+    justify-content: center;
+  }
+}
